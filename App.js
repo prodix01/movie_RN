@@ -5,7 +5,7 @@ import * as Font from "expo-font";
 import {Ionicons} from "@expo/vector-icons";
 
 
-import TabNavigation from "./navigation/TabNavigation";
+import MainNavigation from "./navigation/MainNavigation";
 
 class App extends Component {
 
@@ -29,7 +29,7 @@ class App extends Component {
 
         if (loaded) {
             return (
-                <TabNavigation/>
+                <MainNavigation/>
             );
         }
         else {
