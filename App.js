@@ -3,8 +3,9 @@ import React, {Component} from 'react';
 import {AppLoading} from "expo";
 import * as Font from "expo-font";
 import {Ionicons} from "@expo/vector-icons";
-import {View, Text, StyleSheet} from "react-native";
 
+
+import TabNavigation from "./navigation/TabNavigation";
 
 class App extends Component {
 
@@ -28,9 +29,7 @@ class App extends Component {
 
         if (loaded) {
             return (
-                <View style={styles.container}>
-                    <Text>Loaded true</Text>
-                </View>
+                <TabNavigation/>
             );
         }
         else {
@@ -45,15 +44,5 @@ class App extends Component {
 
     }
 }
-
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center"
-    }
-});
 
 export default App;
