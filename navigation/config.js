@@ -14,7 +14,7 @@ export const headerStyles = {
 
 export const createStack = (screen, title) =>
     createStackNavigator({
-        Scrren: {
+        Screen: {
             screen,
             navigationOptions: {
                 title,
