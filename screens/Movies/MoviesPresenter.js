@@ -1,9 +1,9 @@
 import React from "react";
-import {Text, ScrollView} from "react-native";
 import PropTypes from "prop-types";
 import Loader from "../../components/Loader";
 import styled from "styled-components";
 import {BG_COLOR} from "../../constants/Colors";
+import MovieSlider from "../../components/MovieSlider";
 
 const Container = styled.ScrollView`
     background-color: ${BG_COLOR};
@@ -14,7 +14,9 @@ const Container = styled.ScrollView`
 const MoviePresenter = ({loading, nowPlaying, upComing, popular, error}) =>
     loading
         ? <Loader/>
-        : <Container>{nowPlaying}</Container>;
+        : <Container>
+            <MovieSlider movies={nowPlaying}/>
+        </Container>;
 
 
 
