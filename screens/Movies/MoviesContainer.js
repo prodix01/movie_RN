@@ -7,7 +7,7 @@ class MoviesContainer extends Component {
     state = {
         loading: true,
         nowPlaying: null,
-        upcoming:null,
+        upComing:null,
         popular: null,
         error: null
     };
@@ -32,7 +32,6 @@ class MoviesContainer extends Component {
 
         const {loading, nowPlaying, upcoming, popular, error} = this.state;
 
-        console.log("upcoming" , upcoming);
         return (
             <MoviePresenter
                 loading={loading}

@@ -57,7 +57,7 @@ const BtnContainer = styled.TouchableOpacity`
 `;
 
 const BtnText = styled.Text`
-    color: White;
+    color: white;
     font-size: 12px;
 `;
 
