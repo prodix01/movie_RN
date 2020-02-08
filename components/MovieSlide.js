@@ -8,6 +8,7 @@ import {TINT_COLOR, GREY_COLOR} from "../constants/Colors";
 import MovieRating from "./MovieRating";
 
 
+
 const Container = styled.View`
     flex: 1;
     position: relative;
@@ -39,6 +40,27 @@ const Title = styled.Text`
     font-weight: 600;
 `;
 
+const VoteContainer = styled.View`
+    margin: 10px 0px;
+`;
+
+const OverView = styled.Text`
+    color: ${TINT_COLOR};
+    font-size: 12px;
+    margin-bottom: 10px;
+`;
+
+const BtnContainer = styled.TouchableOpacity`
+    background-color: #e74c3c;
+    border-radius: 5px;
+    padding: 8px;
+`;
+
+const BtnText = styled.Text`
+    color: White;
+    font-size: 12px;
+`;
+
 
 const MovieSlide = ({
     id,
@@ -54,6 +76,21 @@ const MovieSlide = ({
             <MoviePoster path={posterPhoto}/>
             <Column>
                 <Title>{title}</Title>
+                {voteAvg ? (
+                    <VoteContainer>
+                        <MovieRating votes={voteAvg} inSlide={true}/>
+                    </VoteContainer>
+                ) : null}
+                {overview ? (
+                    <OverView>
+                        {overview}
+                    </OverView>
+                ) : null}
+                <BtnContainer>
+                    <BtnText>
+                        View Details
+                    </BtnText>
+                </BtnContainer>
             </Column>
         </Content>
     </Container>
