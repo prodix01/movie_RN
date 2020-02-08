@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Swiper from "react-native-swiper";
 import Layout from "../constants/Layout";
 import MovieSlide from "./MovieSlide";
+import {Alert} from "react-native";
 
 
 const SWIPER_HEIGHT = Layout.height / 3;
@@ -26,9 +27,10 @@ const MovieSlider = ({movies}) =>
             autoPlayTimeout={3}
         >
             {movies
-                .filter(movie => movie.backdrop_path !== null)
+                // .filter(movie => movie.backdrop_path !== null)
                 .map(movie => (
                     <View key={movie.id}>
+                        {Alert(movie)}
                         <MovieSlide
                             voteAvg={movie.vote_average}
                             backgroundPhoto={movie.backdrop_path}

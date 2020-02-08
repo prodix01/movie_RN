@@ -63,7 +63,6 @@ const BtnText = styled.Text`
 
 
 const MovieSlide = ({
-    id,
     posterPhoto,
     backgroundPhoto,
     title,

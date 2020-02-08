@@ -7,30 +7,21 @@ class MoviesContainer extends Component {
     state = {
         loading: true,
         nowPlaying: null,
-        upComing:null,
+        upcoming:null,
         popular: null,
         error: null
     };
 
     async componentDidMount() {
         try {
+            ({ data: { results: upcoming }} = await moviesApi.upComing());
+            ({ data: { results: popular }} = await moviesApi.popular());
+            ({ data: { results: nowPlaying }} = await moviesApi.nowPlaying());
+            this.setState({ upcoming, popular, nowPlaying })
+        } catch {
+            this.setState({  error : "Can't get Movies" });
 
-            ({data : {results: upComing}} = await moviesApi.upComing());
-            ({data : {results: nowPlaying}} = await moviesApi.nowPlaying());
-            ({data : {results: popular}} = await moviesApi.popular());
-
-            this.setState({
-                nowPlaying,
-                upComing,
-                popular
-            });
-        }
-        catch {
-            this.setState({
-                error: "Can't find Movies information"
-            });
-        }
-        finally {
+        } finally {
             this.setState({
                 loading: false
             });
@@ -39,13 +30,14 @@ class MoviesContainer extends Component {
 
     render() {
 
-        const {loading, nowPlaying, upComing, popular, error} = this.state;
+        const {loading, nowPlaying, upcoming, popular, error} = this.state;
 
+        console.log("upcoming" , upcoming);
         return (
             <MoviePresenter
                 loading={loading}
                 nowPlaying={nowPlaying}
-                upComing={upComing}
+                upComing={upcoming}
                 popular={popular}
                 error={error}
             />
