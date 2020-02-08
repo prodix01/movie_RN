@@ -14,17 +14,10 @@ class MoviesContainer extends Component {
 
     async componentDidMount() {
         try {
-            const {
-                data: { results: nowPlaying }
-            } = await moviesApi.nowPlaying();
 
-            const {
-                data: { results: upComing }
-            } = await moviesApi.upComing();
-
-            const {
-                data: { results: popular }
-            } = await moviesApi.popular();
+            ({data : {results: upComing}} = await moviesApi.upComing());
+            ({data : {results: nowPlaying}} = await moviesApi.nowPlaying());
+            ({data : {results: popular}} = await moviesApi.popular());
 
             this.setState({
                 nowPlaying,
@@ -60,6 +53,5 @@ class MoviesContainer extends Component {
     }
 }
 
-MoviesContainer.propTypes = {};
 
 export default MoviesContainer;

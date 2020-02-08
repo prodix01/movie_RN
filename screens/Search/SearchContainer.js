@@ -4,7 +4,7 @@ import SearchPresenter from "./SearchPresenter";
 class SearchContainer extends Component {
 
     state = {
-        loading: true
+        loading: false
     };
 
     render() {
