@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import Image from "react-native-web/src/exports/Image";
 import makePhotoUrl from "../utils/makePhotoUrl";
 
 
